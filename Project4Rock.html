@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="Project4Rock.css">
+</head>
+
+<body>
+    <h3>MALACHY'S PROJECT4</h3>
+    <p>Rock Paper Scissors </p>
+    <button class="js-rock-button" onclick="
+    rockpick();
+    ">Rock</button>
+   <!--For Paper Button-->
+    <button class="js-paper-button rock-button" onclick="
+    paperpick();
+    ">Paper</button>
+
+    <!--For Scissors Button-->
+    <button class="js-scissors-button" onclick="
+    scissorspick();
+    ">Scissors</button>
+
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
+
+    <button onclick="
+        score.wins =0;
+        score.losses =0;
+        score.Ties =0;
+        localStorage.removeItem(score);
+        updatescoreElement();
+    ">Reset Score</button>
+
+
+    <script>
+        let score = JSON.parse(localStorage.getItem('score')) || 
+        { wins : 0,
+          losses: 0,
+          Ties: 0 
+         };
+
+         /*
+        if (!score) {
+            score ={
+            wins : 0,
+            losses: 0,
+            Ties: 0 
+            };
+        };
+        */
+        updatescoreElement();
+
+        //document.querySelector('.js-win')
+        function rockpick(){
+            const randomNumber = Math.random();
+            let computerMove ='';
+            
+            if (randomNumber >= 0 && randomNumber < 1/3 ){
+                computerMove = 'rock';
+            } else if (randomNumber >=1/3 && randomNumber < 2/3){
+                computerMove = 'paper';
+            } else if (randomNumber >= 2/3 && randomNumber < 1){
+                computerMove = 'scissors';
+            };
+            
+            let result = '';
+            if (computerMove === 'rock'){
+                result ='Tie';
+            } else if (computerMove === 'paper'){
+                result = 'You Lose';
+            } else if (computerMove === 'scissors'){
+                result = 'You Win'; 
+            };
+
+            if (result==='You Win'){
+                score.wins +=1;
+            } else if( result === 'You Lose'){
+                score.losses +=1;
+            } else if (result=== 'Tie'){
+                score.Ties +=1;
+            };
+
+            updatescoreElement();
+            document.querySelector('.js-result')
+                .innerHTML = result;
+            document.querySelector('.js-moves')
+                .innerHTML=`You picked Rock - computer picked ${computerMove}`;
+            
+//alert(`You picked Rock. computer picked ${computerMove}. ${result}.
+//wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.Ties}`); 
+            
+        }
+        
+
+        function paperpick(){
+            const randomNumber = Math.random();
+            let computerMove ='';
+            
+            if (randomNumber >= 0 && randomNumber < 1/3 ){
+                computerMove = 'rock';
+            } else if (randomNumber >=1/3 && randomNumber < 2/3){
+                computerMove = 'paper';
+            } else if (randomNumber >= 2/3 && randomNumber < 1){
+                computerMove = 'scissors';
+            };
+            
+            let result = '';
+            if (computerMove === 'rock'){
+                result ='You Win';
+            } else if (computerMove === 'paper'){
+                result = 'Tie';
+            } else if (computerMove === 'scissors'){
+                result = 'You Lose'; 
+            };
+
+            if (result==='You Win'){
+                score.wins +=1;
+            } else if( result === 'You Lose'){
+                score.losses +=1;
+            } else if (result=== 'Tie'){
+                score.Ties +=1;
+            };
+
+            updatescoreElement();
+            document.querySelector('.js-result')
+                .innerHTML = result;
+            document.querySelector('.js-moves')
+                .innerHTML=`You picked Paper - computer picked ${computerMove}`;
+            
+//alert(`You picked Paper. computer picked ${computerMove}. ${result}.
+//wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.Ties}`); 
+            
+        
+        }
+        
+        function scissorspick(){
+            const randomNumber = Math.random();
+            let computerMove ='';
+            
+            if (randomNumber >= 0 && randomNumber < 1/3 ){
+                computerMove = 'rock';
+            } else if (randomNumber >=1/3 && randomNumber < 2/3){
+                computerMove = 'paper';
+            } else if (randomNumber >= 2/3 && randomNumber < 1){
+                computerMove = 'scissors';
+            };
+            
+            let result = '';
+            if (computerMove === 'rock'){
+                result ='You Lose';
+            } else if (computerMove === 'paper'){
+                result = 'You Win';
+            } else if (computerMove === 'scissors'){
+                result = 'Tie'; 
+            };
+
+            if (result==='You Win'){
+                score.wins +=1;
+            } else if( result === 'You Lose'){
+                score.losses +=1;
+            } else if (result=== 'Tie'){
+                score.Ties +=1;
+            };
+            updatescoreElement();
+
+            document.querySelector('.js-result')
+                .innerHTML = result;
+            document.querySelector('.js-moves')
+                .innerHTML =`You picked Scissors - computer picked ${computerMove}.`;
+//alert(`You picked Scissors. computer picked ${computerMove}. ${result}.
+//wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.Ties}`); 
+            
+        };
+
+        
+        function updatescoreElement(){
+            document.querySelector('.js-score')
+                .innerHTML= `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.Ties}`;
+            localStorage.setItem('score', JSON.stringify(score));        
+ 
+        };
+
+        
+
+        /*function checkDecision(){
+            if (result==='You Win'){
+                score.wins +=1;
+            } else if( result === 'You Lose'){
+                score.losses +=1;
+            } else if (result=== 'Tie'){
+                score.Ties +=1;
+            };
+        }*/
+    </script>
+
+
+</body>
+</html>

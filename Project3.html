@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project3</title>
+    <link rel="stylesheet" href="project3.css">
+</head>
+<body>
+    <!--
+    <p>Kindly tell us your name, thanks!</p>
+
+    <input type="text" class="js-name-input" placeholder="Enter Your Name">
+    <button class="js-name" onclick="Namesubmit()">Submit</button>
+
+    <p class="js-name-out"></p>
+
+    <button class="js-button" onclick="Yourchoice('Heads')">Heads</button>
+    <button class="js-button-tails" onclick="Yourchoice('Tails')">Tails</button>
+    <p class="js-decision"></p>
+
+    <p>YouTube Subscribe Button</p>
+    <button class="sub-btn" onclick="
+    subscribe();
+    "> 
+     Subscribe</button>
+    <p>Amazon Shipping Calculator</p>
+    <input class="js-cost-input" placeholder="Cost of Order" onkeydown="handlecostkeydown(Event);
+    ">
+    <button class="cal-btn" onclick="
+    calculateTotal();
+    ">Calculate</button>
+    <p class="js-total-cost"></p>
+-->
+
+    <p>Todo List</p>
+    <div class="input-todo-grid">  
+        <input class="js-input-dolist" placeholder="Todo Name">
+        <input type="date" class="js-duedate-input">
+        <button onclick="
+        addTodo();
+        ">Add</button>
+    </div>  
+
+    <div class="js-todo-list todo-grid"></div>
+
+    <script src="03-TodolistP3.js">
+       /* function Namesubmit() {
+            const Yourname = document.querySelector('.js-name-input').value;
+            document.querySelector('.js-name-out').innerHTML = `Your name is ${Yourname} right?`;
+        }
+
+        function Yourchoice(choice) {
+            document.querySelector('.js-decision').innerHTML = `You chose ${choice}`;
+        }
+
+        function handlecostkeydown(){
+            if (event.key === 'Enter'){
+                calculateTotal();
+            }
+        }
+
+
+        function calculateTotal(){
+            const inputElemet = document.querySelector('.js-cost-input');
+            //To get value inside a textbox use .value.
+            let cost = Number(inputElemet.value);
+            let discount = cost * 0.05;
+            if (cost <= 50) {
+                cost = cost + 10;
+            }else if  (cost => 500){
+                cost = cost -discount;
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = ` The totral cost is $${cost}`;
+        }
+
+
+        function subscribe(){
+            const buttonElement = document.querySelector('.sub-btn');
+    
+            if (buttonElement.innerHTML === 'Subscribe'){
+                buttonElement.innerHTML = 'Subscribed';
+            }else{
+                buttonElement.innerHTML ='Subscribe';
+            }
+        }*/
+    </script>
+</body>
+
+</html>
